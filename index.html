@@ -590,6 +590,32 @@ menuToggle.addEventListener('click', () => {
 });
 </script>
 
+<!-- Open Gmail compose on contact form submit -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('contactForm');
+    if (!form) return;
+    form.addEventListener('submit', function (e) {
+      // Respect native validation
+      if (!form.checkValidity()) return;
+      e.preventDefault();
+
+      const to = 'info@rkb-global.com';
+      const name = (form.elements['name']?.value || '').trim();
+      const email = (form.elements['email']?.value || '').trim();
+      const phone = (form.elements['phone']?.value || '').trim();
+      const subject = (form.elements['subject']?.value || '').trim();
+      const message = (form.elements['message']?.value || '').trim();
+
+      const body = `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\n\nMessage:\n${message}`;
+
+      // Open Gmail compose in a new tab
+      const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(to)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.open(gmailUrl, '_blank');
+    });
+  });
+  </script>
+
 <!-- script for Top slider -->
 <script>
 const slides = document.querySelectorAll('.hero-slider .slide');
