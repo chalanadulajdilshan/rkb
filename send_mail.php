@@ -55,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   $headers .= "MIME-Version: 1.0\r\n";
   $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
   // Use a domain address in From to pass SPF/DMARC; keep user in Reply-To
-  $headers .= "From: RKB Global Academy <rishithagcrlf@gmail.com>\r\n";
+  $headers .= "From: RKB Global Academy <info@rkb-global.com>\r\n";
   $headers .= "Reply-To: {$safe_email}\r\n";
   $headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
 
