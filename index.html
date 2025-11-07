@@ -446,6 +446,57 @@
   </div>
 </section>
 
+<!-- CONTACT US SECTION -->
+<section id="contact" class="contact-section">
+  <div class="contact-container">
+    <h2>Contact Us</h2>
+    <p class="contact-intro">
+      Have questions or need assistance? Reach out to us and we’ll respond as soon as possible.
+    </p>
+
+    <div class="contact-grid">
+      <!-- LEFT: FORM -->
+      <div class="contact-form">
+        <form id="contactForm" action="send_mail.php" method="POST">
+          <div class="form-group">
+            <input type="text" name="name" placeholder="Your Name" required minlength="2">
+          </div>
+          <div class="form-group">
+            <input type="email" name="email" placeholder="Your Email" required>
+          </div>
+          <div class="form-group">
+            <input type="text" name="phone" placeholder="Contact Number" required pattern="^[0-9+\-()\s]{7,}$" title="Enter a valid phone number (at least 7 characters; digits, spaces, +, -, () allowed)">
+          </div>
+          <div class="form-group">
+            <input type="text" name="subject" placeholder="Subject" required minlength="3">
+          </div>
+          <div class="form-group">
+            <textarea name="message" rows="5" placeholder="Your Message" required minlength="10"></textarea>
+          </div>
+
+          <input type="text" name="website" id="website" autocomplete="off" tabindex="-1" style="position:absolute;left:-9999px;opacity:0;" aria-hidden="true">
+
+          <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+      </div>
+
+      <!-- RIGHT: MAP -->
+      <div class="contact-map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31672.47055401386!2d80.04406887525141!3d7.119182479827722!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae2fd0135a0e48b%3A0x3724eccc59e2d8db!2sKalagedihena!5e0!3m2!1sen!2slk!4v1762512737749!5m2!1sen!2slk"
+          width="100%"
+          height="100%"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 <!-- ===== Footer ===== -->
 <footer class="site-footer">
   <div class="footer-container">

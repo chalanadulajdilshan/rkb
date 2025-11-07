@@ -1254,6 +1254,117 @@ body {
   .icon-circle { animation-duration: 3.2s; }
 }
 
+/* ===== CONTACT US SECTION ===== */
+.contact-section {
+  background: linear-gradient(180deg, #f3f4f6 0%, #ffffff 100%);
+  padding: 120px 0;
+}
+
+.contact-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 30px;
+  text-align: center;
+}
+
+.contact-section h2 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #004aad;
+  margin-bottom: 10px;
+}
+
+.contact-intro {
+  color: #555;
+  font-size: 1.05rem;
+  margin-bottom: 50px;
+  line-height: 1.6;
+}
+
+/* GRID */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: stretch;
+}
+
+/* FORM */
+.contact-form {
+  background: #fff;
+  padding: 40px 30px;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  text-align: left;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1.8px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #004aad;
+  outline: none;
+}
+
+/* VERIFY CHECKBOX */
+.form-verify {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 25px;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+/* SUBMIT BUTTON */
+.submit-btn {
+  background: linear-gradient(135deg, #004aad, #00c6ff);
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.submit-btn:hover {
+  transform: scale(1.03);
+  background: linear-gradient(135deg, #003b8f, #009ce0);
+}
+
+/* MAP */
+.contact-map iframe {
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  height: 100%;
+  min-height: 400px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+  .contact-map {
+    margin-top: 40px;
+  }
+}
+
+
 /* ===== FOOTER ===== */
 .site-footer {
   position: relative;
