@@ -48,14 +48,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   $safe_message = htmlspecialchars($message, ENT_QUOTES, 'UTF-8');
 
   $to = "rishithagcrlf@gmail.com";
-  $email_subject = "New Contact Form Submission: " . $safe_subject;
+  $email_subject = $safe_subject;
   $email_body = "Name: {$safe_name}\r\nEmail: {$safe_email}\r\nPhone: {$safe_phone}\r\n\r\nMessage:\r\n{$safe_message}";
 
   $headers = '';
   $headers .= "MIME-Version: 1.0\r\n";
   $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
   // Use a domain address in From to pass SPF/DMARC; keep user in Reply-To
-  $headers .= "From: RKB Global Academy <rishithagcrlf@gmail.com>\r\n";
+  $headers .= "From: RKB Global Academy <info@rkb>\r\n";
   $headers .= "Reply-To: {$safe_email}\r\n";
   $headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
 
@@ -65,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   if (mail($to, $encoded_subject, $email_body, $headers)) {
     echo "<script>alert('Message sent successfully! We will get back to you soon.'); window.history.back();</script>";
   } else {
-    echo "<script>alert('We could not send your message at the moment. Please try again later or email rishithagcrlf@gmail.com.'); window.history.back();</script>";
+    echo "<script>alert('We could not send your message at the moment. Please try again later or email info@rkb.'); window.history.back();</script>";
   }
 }
 ?>

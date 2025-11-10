@@ -11,6 +11,7 @@
 
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  
 </head>
 <body>
 
@@ -30,6 +31,7 @@
       <a href="#values">Values</a>
       <a href="#facilities">Facilities</a>
       <a href="#choose">Why Choose Us</a>
+      <a href="#contact">Contact Us</a>
     </nav>
 
       <div class="menu-toggle" id="menu-toggle">
@@ -182,9 +184,9 @@
     </p>
 
     <div class="course-slider" data-aos="fade-up">
-     <!-- Updated Buttons with Icons -->
+     <!-- Navigation Buttons with Font Awesome Icons -->
       <button class="course-btn prev">
-        <span class="btn-icon">&#10094;</span>
+        <i class="fas fa-chevron-left"></i>
       </button>
        <div class="course-track">
         <!-- Each course card -->
@@ -258,8 +260,8 @@
           <p>Strengthen your English for global communication. Focus on grammar, conversation, and writing for workplace and academic success through interactive sessions and modern teaching techniques.</p>
         </div>
 </div>
-<button class="course-btn next">
-        <span class="btn-icon">&#10095;</span>
+      <button class="course-btn next">
+        <i class="fas fa-chevron-right"></i>
       </button>
       </div>
         
@@ -476,7 +478,26 @@
 
           <input type="text" name="website" id="website" autocomplete="off" tabindex="-1" style="position:absolute;left:-9999px;opacity:0;" aria-hidden="true">
 
-          <button type="submit" class="submit-btn">Send Message</button>
+          
+           <!-- Honeypot (spam trap) -->
+         <input type="text" name="website" id="website" autocomplete="off" tabindex="-1"
+      style="position:absolute;left:-9999px;opacity:0;" aria-hidden="true">
+
+    <!-- Human Verification Checkbox -->
+    <div class="human-verification">
+      <label class="checkbox-container">
+        <input type="checkbox" id="humanCheck" required>
+        <span class="checkmark">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 6L9 17L4 12" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span class="checkbox-label">I'm not a robot</span>
+      </label>
+    </div>
+
+    <button type="submit" class="submit-btn" id="submitBtn" disabled>Send Message</button>
+ 
         </form>
       </div>
 
@@ -500,8 +521,8 @@
 <!-- ===== Footer ===== -->
 <footer class="site-footer">
   <div class="footer-container">
-
-   
+    
+    
 
     <!-- Columns -->
     <div class="footer-grid">
@@ -535,6 +556,7 @@
             <li><a href="#values">Values</a></li>
             <li><a href="#facilities">Facilities</a></li>
             <li><a href="#choose">Why Choose Us</a></li>
+            <li><a href="#contact">Contact Us</a></li>
             
           </ul>
         </div>
@@ -590,31 +612,73 @@ menuToggle.addEventListener('click', () => {
 });
 </script>
 
-<!-- Open Gmail compose on contact form submit -->
+
+
+   
+<!-- Open Gmail compose professionally -->
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const form = document.getElementById('contactForm');
-    if (!form) return;
-    form.addEventListener('submit', function (e) {
-      // Respect native validation
-      if (!form.checkValidity()) return;
-      e.preventDefault();
-
-      const to = 'info@rkb-global.com';
-      const name = (form.elements['name']?.value || '').trim();
-      const email = (form.elements['email']?.value || '').trim();
-      const phone = (form.elements['phone']?.value || '').trim();
-      const subject = (form.elements['subject']?.value || '').trim();
-      const message = (form.elements['message']?.value || '').trim();
-
-      const body = `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\n\nMessage:\n${message}`;
-
-      // Open Gmail compose in a new tab
-      const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(to)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      window.open(gmailUrl, '_blank');
-    });
+document.addEventListener('DOMContentLoaded', function () {
+  const form = document.getElementById('contactForm');
+  const humanCheck = document.getElementById('humanCheck');
+  const submitBtn = document.getElementById('submitBtn');
+  
+  if (!form || !humanCheck || !submitBtn) return;
+  
+  // Enable/disable submit button based on checkbox state
+  humanCheck.addEventListener('change', function() {
+    submitBtn.disabled = !this.checked;
   });
-  </script>
+
+  form.addEventListener('submit', function (e) {
+    if (!form.checkValidity()) return;
+    e.preventDefault();
+
+    if (!humanCheck.checked) {
+      alert('Please verify that you are not a robot.');
+      return;
+    }
+    
+    const to = 'rishithagcrlf@gmail.com'; // where the inquiry is sent
+    const name = (form.elements['name']?.value || '').trim();
+    const email = (form.elements['email']?.value || '').trim();
+    const phone = (form.elements['phone']?.value || '').trim();
+    const topic = (form.elements['subject']?.value || '').trim();
+    const message = (form.elements['message']?.value || '').trim();
+
+    // Clean, professional body format
+    const body =
+`Dear RKB Global Team,
+
+A new inquiry has been submitted through the website contact form.
+
+----------------------------------------
+Full Name  : ${name}
+Email      : ${email}
+Phone      : ${phone}
+Interest   : ${topic}
+----------------------------------------
+
+Message:
+${message}
+
+Kind regards,
+${name}`;
+
+    // Professional fixed email subject
+    const emailSubject = "New Website Inquiry from RKB Global Contact Form";
+
+    // Build Gmail compose link
+    const gmailUrl =
+      `https://mail.google.com/mail/?view=cm&fs=1` +
+      `&to=${encodeURIComponent(to)}` +
+      `&su=${encodeURIComponent(emailSubject)}` +
+      `&body=${encodeURIComponent(body)}`;
+
+    window.open(gmailUrl, '_blank');
+  });
+});
+</script>
+
 
 <!-- script for Top slider -->
 <script>
